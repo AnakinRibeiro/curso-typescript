@@ -32,17 +32,33 @@ var CharAccount = /** @class */ (function (_super) {
         _this.level = level;
         return _this;
     }
+    Object.defineProperty(CharAccount.prototype, "getLevel", {
+        get: function () {
+            console.log("-----GET-----");
+            return this.level;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CharAccount.prototype, "setLevel", {
+        set: function (level) {
+            this.level = level;
+        },
+        enumerable: false,
+        configurable: true
+    });
     CharAccount.prototype.logChartDetails = function () {
-        console.log("The player " + this.name + " has the char " + this.nickname + " at the level " + this.level);
+        console.log("The player " + this.name + " is " + this.age + " and has the char " + this.nickname + " at the level " + this.level);
     };
     return CharAccount;
 }(UserAccount));
-var will = new UserAccount("Willian", 30);
-console.log(will);
-console.log(will.age);
-will.logDeatails();
+// const will = new UserAccount("Willian", 30);
+// console.log(will);
+// will.logDeatails();
 var john = new CharAccount("John", 45, "johnmaster", 80);
 // john.nickname = "willjusten";
 console.log(john);
 john.logDeatails();
 john.logChartDetails();
+john.setLevel = 499;
+console.log(john.getLevel);
